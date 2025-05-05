@@ -1,8 +1,8 @@
-const { Pelanggan } = require('../models');
+const { Penumpang } = require('../models');
 
 exports.getAll = async (req, res) => {
     try {
-        const data = await Pelanggan.findAll();
+        const data = await Penumpang.findAll();
         res.json({ 
             message: 'Data retrieved successfully', 
             data 
@@ -15,7 +15,7 @@ exports.getAll = async (req, res) => {
 exports.create = async (req, res) => {
     try {
         let data = req.body;
-        const newData = await Pelanggan.create(data);
+        const newData = await Penumpang.create(data);
         res.status(201).json({ 
             message: 'Data created successfully', 
             newData 
@@ -28,7 +28,7 @@ exports.create = async (req, res) => {
 exports.update = async (req, res) => {
     try {
         let data = req.body;
-        const updated = await Pelanggan.update(data, { where: { id: req.params.id } });
+        const updated = await Penumpang.update(data, { where: { id: req.params.id } });
         res.json({ 
             message: 'Data updated successfully', 
             updated 
@@ -40,7 +40,7 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
     try {
-        await Pelanggan.destroy({ where: { id: req.params.id } });
+        await Penumpang.destroy({ where: { id: req.params.id } });
         res.json({ 
             message: 'Data deleted successfully' 
         });
